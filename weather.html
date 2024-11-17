@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>2025 Farmer's Weather Report</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9f5e1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .weather-report {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .weather-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .weather-card:hover {
+            transform: scale(1.05);
+        }
+
+        .weather-month {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .weather-details {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .weather-details span {
+            font-weight: bold;
+        }
+
+        .weather-tips {
+            font-size: 1rem;
+            background-color: #e8f5e8;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .weather-card {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .weather-card {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-light " style="background-color: #86f740;">
+        <a class="navbar-brand" href="#"><span class="badge badge-light">KRUSHI-मित्र</span> <img
+                src="output-onlinepngtools.png" width="45" height="45" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faqs.html">FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calender.html">Agricultural Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="weather.html">Weather Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="crop.html">Crop Growth Tracker</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>2025 Farmer's Weather Report</h1>
+
+        <div class="weather-report" id="weatherReport">
+            <!-- Weather data will be inserted here dynamically -->
+        </div>
+    </div>
+    <footer class="text-center text-lg-start text-white" style="background-color: #5d3502">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">
+                            KRUSHImitra
+                            <img src="output-onlinepngtools.png" alt="" style="height: 5cm;">
+                        </h6>
+                        <p>
+                            Empowering Farmers, Cultivating Solutions
+                            <br>© 2024 Krushi Mitra. All Rights Reserved.
+                            <br>📍 Address: pune
+                            <br>📞 Contact Us: 9322524896
+                            <br>✉️ Email: spandanmali2006@gmail.com
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Servises</h6>
+                        <p>
+                            <a class="text-white">Information</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Awarness</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Knowledge</a>
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
+
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024 Copyright:
+
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <script>
+        const weatherData2025 = {
+            "January": {
+                temperature: "12°C - 25°C",
+                precipitation: "Low (15mm)",
+                windSpeed: "12 km/h",
+                humidity: "60%",
+                tips: "Prepare for the sowing of wheat and barley."
+            },
+            "February": {
+                temperature: "14°C - 28°C",
+                precipitation: "Low (20mm)",
+                windSpeed: "14 km/h",
+                humidity: "55%",
+                tips: "Ideal time for pruning trees and preparing fields."
+            },
+            "March": {
+                temperature: "18°C - 32°C",
+                precipitation: "Moderate (40mm)",
+                windSpeed: "18 km/h",
+                humidity: "50%",
+                tips: "Start sowing summer crops like maize and cotton."
+            },
+            "April": {
+                temperature: "22°C - 35°C",
+                precipitation: "Moderate (50mm)",
+                windSpeed: "22 km/h",
+                humidity: "45%",
+                tips: "Ensure irrigation is set up for summer crops."
+            },
+            "May": {
+                temperature: "25°C - 38°C",
+                precipitation: "High (100mm)",
+                windSpeed: "25 km/h",
+                humidity: "60%",
+                tips: "Prepare for monsoon sowing and pest control."
+            },
+            "June": {
+                temperature: "28°C - 40°C",
+                precipitation: "High (120mm)",
+                windSpeed: "30 km/h",
+                humidity: "70%",
+                tips: "Monitor for fungal diseases during the rainy season."
+            },
+            "July": {
+                temperature: "30°C - 40°C",
+                precipitation: "Very High (150mm)",
+                windSpeed: "35 km/h",
+                humidity: "80%",
+                tips: "Focus on pest control and maintaining irrigation."
+            },
+            "August": {
+                temperature: "30°C - 38°C",
+                precipitation: "High (130mm)",
+                windSpeed: "28 km/h",
+                humidity: "75%",
+                tips: "Harvest rice and other early summer crops."
+            },
+            "September": {
+                temperature: "28°C - 36°C",
+                precipitation: "Moderate (70mm)",
+                windSpeed: "22 km/h",
+                humidity: "65%",
+                tips: "Begin preparation for Kharif crops."
+            },
+            "October": {
+                temperature: "24°C - 32°C",
+                precipitation: "Low (40mm)",
+                windSpeed: "18 km/h",
+                humidity: "55%",
+                tips: "Harvest cotton, start wheat sowing preparation."
+            },
+            "November": {
+                temperature: "18°C - 30°C",
+                precipitation: "Low (20mm)",
+                windSpeed: "15 km/h",
+                humidity: "50%",
+                tips: "Monitor wheat crops and prepare fields for the next season."
+            },
+            "December": {
+                temperature: "12°C - 26°C",
+                precipitation: "Low (10mm)",
+                windSpeed: "12 km/h",
+                humidity: "60%",
+                tips: "Final preparations for winter crops and irrigation systems."
+            }
+        };
+
+        function generateWeatherReport() {
+            let weatherHTML = '';
+
+            for (const month in weatherData2025) {
+                const data = weatherData2025[month];
+
+                weatherHTML += `
+          <div class="weather-card">
+            <div class="weather-month">${month}</div>
+            <div class="weather-details">
+              <p><span>Temperature:</span> ${data.temperature}</p>
+              <p><span>Precipitation:</span> ${data.precipitation}</p>
+              <p><span>Wind Speed:</span> ${data.windSpeed}</p>
+              <p><span>Humidity:</span> ${data.humidity}</p>
+            </div>
+            <div class="weather-tips">
+              <p><strong>Farming Tips:</strong> ${data.tips}</p>
+            </div>
+          </div>
+        `;
+            }
+
+            document.getElementById('weatherReport').innerHTML = weatherHTML;
+        }
+
+        window.onload = generateWeatherReport;
+    </script>
+    <!-- Swiper JS -->
+    <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <!--Uncomment this line-->
+    <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

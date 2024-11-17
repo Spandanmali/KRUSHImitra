@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Farmer's Calendar</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Style */
+        .calendar-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .calendar-header {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Calendar Table Style */
+        .calendar-table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e1f7e1;
+        }
+
+        td {
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .calendar-header {
+                font-size: 2rem;
+            }
+
+            select {
+                width: 80%;
+                font-size: 1.2rem;
+            }
+
+            .calendar-table {
+                width: 100%;
+                font-size: 0.9rem;
+            }
+
+            th,
+            td {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar-header {
+                font-size: 1.5rem;
+            }
+
+            select {
+                width: 100%;
+            }
+
+            .calendar-table {
+                font-size: 0.8rem;
+            }
+
+            td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-light " style="background-color: #86f740;">
+        <a class="navbar-brand" href="#"><span class="badge badge-light">KRUSHI-मित्र</span> <img
+                src="output-onlinepngtools.png" width="45" height="45" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faqs.html">FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calender.html">Agricultural Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="weather.html">Weather Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="crop.html">Crop Growth Tracker</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="calendar-container">
+        <h1 class="calendar-header" style="margin-top: 2cm;"> Farmer's Calendar</h1>
+
+        <!-- Year Selector Dropdown -->
+        <select id="yearSelect" onchange="updateCalendar()">
+            <option value="2025">2025</option>
+        </select>
+
+        <!-- Dynamic Calendar Table -->
+        <div id="calendarDisplay">
+            <!-- Calendar content will be inserted dynamically -->
+        </div>
+    </div>
+    <footer class="text-center text-lg-start text-white" style="background-color: #5d3502">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">
+                            KRUSHImitra
+                            <img src="output-onlinepngtools.png" alt="" style="height: 5cm;">
+                        </h6>
+                        <p>
+                            Empowering Farmers, Cultivating Solutions
+                            <br>© 2024 Krushi Mitra. All Rights Reserved.
+                            <br>📍 Address: pune
+                            <br>📞 Contact Us: 9322524896
+                            <br>✉️ Email: spandanmali2006@gmail.com
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Servises</h6>
+                        <p>
+                            <a class="text-white">Information</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Awarness</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Knowledge</a>
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
+
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024 Copyright:
+
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <script>
+        // Data for the Farmer's Calendar for 2024 and 2025
+        const farmerCalendar = {
+            "2024": {
+                "January": { sowing: "Wheat Sowing", harvesting: "Harvesting Rabi Crops", tips: "Ensure adequate soil moisture." },
+                "February": { sowing: "Rice Field Preparation", harvesting: "Harvesting Pulses", tips: "Prune fruit trees." },
+                "March": { sowing: "Summer Crop Sowing", harvesting: "Harvesting Wheat", tips: "Start Fertilization." },
+                "April": { sowing: "Cotton, Sugarcane Sowing", harvesting: "Harvesting Barley", tips: "Monitor pests." },
+                "May": { sowing: "Maize, Rice Sowing", harvesting: "Harvesting of Early Summer Crops", tips: "Prepare fields for Kharif." },
+                "June": { sowing: "Monsoon Crops like Rice, Corn", harvesting: "Harvesting Early Varieties of Mangoes", tips: "Maintain irrigation." },
+                "July": { sowing: "Soybean, Groundnut", harvesting: "Harvesting of Pulses", tips: "Weed control." },
+                "August": { sowing: "Vegetables, Rice Transplantation", harvesting: "Harvesting of Rice", tips: "Fertilization." },
+                "September": { sowing: "Rice, Vegetables", harvesting: "Rice Harvesting", tips: "Disease monitoring." },
+                "October": { sowing: "Wheat Preparation", harvesting: "Harvesting of Cotton", tips: "Prune trees." },
+                "November": { sowing: "Wheat, Barley Sowing", harvesting: "Harvesting of Kharif Crops", tips: "Start irrigation for Rabi." },
+                "December": { sowing: "Barley, Wheat Sowing", harvesting: "Harvesting of Late Summer Crops", tips: "Prepare for Winter Crops." }
+            },
+            "2025": {
+                "January": { sowing: "Wheat Sowing", harvesting: "Harvesting Rabi Crops", tips: "Ensure adequate soil moisture." },
+                "February": { sowing: "Rice Field Preparation", harvesting: "Harvesting Pulses", tips: "Prune fruit trees." },
+                "March": { sowing: "Summer Crop Sowing", harvesting: "Harvesting Wheat", tips: "Start Fertilization." },
+                "April": { sowing: "Cotton, Sugarcane Sowing", harvesting: "Harvesting Barley", tips: "Monitor pests." },
+                "May": { sowing: "Maize, Rice Sowing", harvesting: "Harvesting of Early Summer Crops", tips: "Prepare fields for Kharif." },
+                "June": { sowing: "Monsoon Crops like Rice, Corn", harvesting: "Harvesting Early Varieties of Mangoes", tips: "Maintain irrigation." },
+                "July": { sowing: "Soybean, Groundnut", harvesting: "Harvesting of Pulses", tips: "Weed control." },
+                "August": { sowing: "Vegetables, Rice Transplantation", harvesting: "Harvesting of Rice", tips: "Fertilization." },
+                "September": { sowing: "Rice, Vegetables", harvesting: "Rice Harvesting", tips: "Disease monitoring." },
+                "October": { sowing: "Wheat Preparation", harvesting: "Harvesting of Cotton", tips: "Prune trees." },
+                "November": { sowing: "Wheat, Barley Sowing", harvesting: "Harvesting of Kharif Crops", tips: "Start irrigation for Rabi." },
+                "December": { sowing: "Barley, Wheat Sowing", harvesting: "Harvesting of Late Summer Crops", tips: "Prepare for Winter Crops." }
+            }
+        };
+
+        // Function to update the calendar based on the selected year
+        function updateCalendar() {
+            const year = document.getElementById("yearSelect").value;
+            const calendarData = farmerCalendar[year];
+
+            let tableHTML = "<table class='calendar-table'><thead><tr><th>Month</th><th>Sowing Activities</th><th>Harvesting Activities</th><th>Special Tips</th></tr></thead><tbody>";
+
+            for (const month in calendarData) {
+                tableHTML += `<tr>
+                        <td>${month}</td>
+                        <td>${calendarData[month].sowing}</td>
+                        <td>${calendarData[month].harvesting}</td>
+                        <td>${calendarData[month].tips}</td>
+                      </tr>`;
+            }
+
+            tableHTML += "</tbody></table>";
+            document.getElementById("calendarDisplay").innerHTML = tableHTML;
+        }
+
+        // Initialize the calendar for the first time
+        window.onload = updateCalendar;
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>FAQ Page</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .faq-container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f7f7f7;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #e0e0e0;
+        }
+
+        .faq-answer {
+            padding: 15px;
+            display: none;
+            color: #555;
+            background-color: #fafafa;
+        }
+
+        .faq-question .icon {
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active .icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-light " style="background-color: #86f740;">
+        <a class="navbar-brand" href="#"><span class="badge badge-light">KRUSHI-मित्र</span> <img
+                src="output-onlinepngtools.png" width="45" height="45" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faqs.html">FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calender.html">Agricultural Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="weather.html">Weather Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="crop.html">Crop Growth Tracker</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="faq-container">
+        <h3>Frequently Asked Questions</h3>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span style="font-size: 13px;">What is the purpose of KRUSHImitra?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Our website provides information and resources for sustainable agriculture practices to empower farmers.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span style="font-size: 13px;">How does climate change affect agriculture development in India?
+                </span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Climate change brings unpredictable weather, rising temperatures, and extreme events like droughts and
+                floods, which threaten crop yields and farmers’ livelihoods. Farmers are adopting climate-smart
+                techniques and drought-resistant crops, with ongoing support from the government and scientists to adapt
+                to these changes and safeguard food security.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span style="font-size: 13px;">What is organic farming, and how is it related to agricultural
+                    development in India?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Organic farming avoids synthetic chemicals, focusing on eco-friendly practices that enhance soil health
+                and biodiversity. Growing consumer demand for chemical-free food has spurred organic farming in India,
+                especially in states like Sikkim and Kerala, aligning with sustainable agricultural development goals.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span style="font-size: 13px;">What is agricultural devlopment?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Agriculture development addresses today’s farming and food production challenges, extending beyond
+                growing crops to include climate change, urbanization, nutrition, and gender equality. Experts focus on
+                building resilient food systems, improving nutrition, and managing natural resources sustainably.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span style="font-size: 13px;">How can young people in India get involved in agricultural development?
+                </span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Young people can engage in agriculture through education, agri-entrepreneurship, and technology.
+                Startups in areas like hydroponics and urban agriculture are transforming the sector, and government
+                schemes provide support for new ventures.
+            </div>
+        </div>
+        <!-- Add more FAQ items as needed -->
+    </div>
+
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.icon');
+
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                icon.textContent = "+";
+            } else {
+                answer.style.display = "block";
+                icon.textContent = "-";
+            }
+            element.classList.toggle("active");
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

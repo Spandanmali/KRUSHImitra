@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>info</title>
+    <style>
+        .banner {
+            width: 100%;
+            height: 805;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Optional: Container for center alignment */
+        .banner-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border: white;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Table of Contents Sidebar */
+        .toc {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            width: 250px;
+            z-index: 1000;
+            font-size: 1rem;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .toc h3 {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc ul li {
+            margin: 10px 0;
+        }
+
+        .toc ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            padding: 8px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .toc ul li a:hover {
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Main content layout */
+        .content {
+            margin-left: 280px;
+            padding-top: 20px;
+        }
+
+        .content h2 {
+            font-size: 2rem;
+            margin: 30px 0;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .content section {
+            margin-bottom: 40px;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .toc {
+                position: static;
+                width: 100%;
+                max-height: none;
+                margin-bottom: 10px;
+                margin-top: 20px;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        section p {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Images */
+        .image-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Flexbox Layout for responsive design */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .content-wrapper div {
+            flex: 1;
+            min-width: 300px;
+            box-sizing: border-box;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .content-wrapper div {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-light " style="background-color: #86f740;">
+        <a class="navbar-brand" href="#"><span class="badge badge-light">KRUSHI-मित्र</span> <img
+                src="output-onlinepngtools.png" width="45" height="45" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faqs.html">FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calender.html">Agricultural Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="weather.html">Weather Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="crop.html">Crop Growth Tracker</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h2 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-top: 2cm;">Understanding
+            the Problem,
+            Causes, and Solution</h2>
+    </header>
+    <div class="banner-container">
+        <img src="causes banner.webp" alt="Farming Causes, Solutions, and Problems" class="banner">
+    </div>
+    <hr style="color: #000;background-color: #000;">
+
+    <div class="container">
+        <!-- Problem Section -->
+        <section>
+            <h1 style="font-family:monospace;"><b>The Problem - <u> Rural Health Issues </u></b></h1>
+            <div class="content-wrapper">
+                <div>
+                    <p>
+                    <h5 style="font-family:monospace;">Rural health issues among farmers encompass a range of physical,
+                        mental, and environmental health challenges that disproportionately affect agricultural
+                        communities. Farmers often face unique health risks due to their working environment, exposure
+                        to chemicals, lack of healthcare access, and other socioeconomic factors. These health issues
+                        not only impact individual well-being but also affect productivity and the sustainability of
+                        agricultural practices.
+
+
+
+                    </h5>
+                    </p>
+                </div>
+                <div>
+                    <div class="image-container">
+                        <img src="health.png" alt="Problem Image">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr style="color: #000;background-color: #000;">
+
+        <!-- Causes Section -->
+        <section>
+            <h1 style="font-family:monospace;"><b>Causes Of The Problem</b></h1>
+            <div class="content-wrapper">
+                <div>
+                    <p>
+                    <h2 style="font-family:monospace;">1. Physical Strain and Injuries</h2>
+                    <h5 style="font-family:monospace;">
+                        <ul>
+                            <li style="font-family:monospace;"> Farmers work long hours performing physically demanding
+                                tasks, often without sufficient rest or support. Common physical health issues include
+                                musculoskeletal disorders, back pain, joint injuries, and repetitive strain injuries.
+                            </li>
+
+                        </ul>
+                    </h5>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                    <h2 style="font-family:monospace;">2. Chemical Exposure</h2>
+                    <h5 style="font-family:monospace;">
+                        <ul>
+                            <li style="font-family:monospace;">Frequent exposure to pesticides, herbicides, and other
+                                chemicals can lead to respiratory issues, skin conditions, and even long-term illnesses
+                                such as cancer. Many rural farmers lack access to adequate protective gear or may not
+                                receive sufficient training on chemical safety.</li>
+
+                        </ul>
+                    </h5>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                    <h2 style="font-family:monospace;">3. Mental Health Challenges</h2>
+                    <h5 style="font-family:monospace;">
+                        <ul>
+                            <li style="font-family:monospace;"> Farmers face high levels of stress due to unpredictable
+                                income, crop failure risks, market fluctuations, and debt. This can lead to depression,
+                                anxiety, and other mental health issues.
+                            </li>
+
+
+                        </ul>
+                    </h5>
+                    </p>
+                </div>
+
+
+
+            </div>
+        </section>
+        <hr style="color: #000;background-color: #000;">
+
+        <!-- Solution Section -->
+        <section>
+            <h1 style="font-family:monospace;"><b>The Solution</b></h1>
+            <div class="content-wrapper">
+                <section>
+                    <div>
+                        <p>
+                        <h2 style="font-family:monospace;">1. Improved Access to Healthcare Services</h2>
+                        <h5 style="font-family:monospace;">
+                            <ul>
+                                <li style="font-family:monospace;"> Deploy mobile healthcare units and telemedicine
+                                    services to reach remote areas. Telemedicine can connect farmers with specialists,
+                                    provide routine checkups, and monitor chronic conditions.</li>
+
+
+                            </ul>
+                        </h5>
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <p>
+                        <h2 style="font-family:monospace;">2. Occupational Health and Safety Training</h2>
+                        <h5 style="font-family:monospace;">
+                            <ul>
+                                <li style="font-family:monospace;">Governments can implement land reforms that
+                                    facilitate easier access to land for young farmers. This can include creating
+                                    affordable land leasing schemes or programs that allow youth to buy or inherit
+                                    land.Training farmers in safe handling of chemicals and proper equipment use can
+                                    significantly reduce health risks. Additionally, providing access to protective gear
+                                    can mitigate chemical exposure.
+                                </li>
+
+                            </ul>
+                        </h5>
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <p>
+                        <h2 style="font-family:monospace;">3. Mental Health Support Programs
+                        </h2>
+                        <h5 style="font-family:monospace;">
+                            <ul>
+                                <li style="font-family:monospace;"> Initiatives to create community mental health
+                                    programs, led by local healthcare providers or peer counselors, can provide farmers
+                                    with mental health support in a stigma-free environment.
+                                </li>
+
+
+                            </ul>
+                        </h5>
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <hr style="color: #000;background-color: #000;">
+                    <h1 style="font-family:monospace;"><b>The Conclution</b></h1>
+                    <h5 style="font-family:monospace;">
+                        <ul>
+                            <li style="font-family:monospace;">Addressing the health challenges faced by rural farmers
+                                is essential for ensuring their well-being, productivity, and the sustainability of
+                                agriculture. Health issues in rural farming communities are driven by a mix of physical,
+                                environmental, social, and economic factors. Without proper intervention, these issues
+                                can worsen, impacting not only individual farmers but also the agricultural sector as a
+                                whole.</li>
+
+                        </ul>
+                    </h5>
+                </section>
+
+            </div>
+        </section>
+    </div>
+
+    <footer class="text-center text-lg-start text-white" style="background-color: #5d3502">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">
+                            KRUSHImitra
+                            <img src="output-onlinepngtools.png" alt="" style="height: 5cm;">
+                        </h6>
+                        <p>
+                            Empowering Farmers, Cultivating Solutions
+                            <br>© 2024 Krushi Mitra. All Rights Reserved.
+                            <br>📍 Address: pune
+                            <br>📞 Contact Us: 9322524896
+                            <br>✉️ Email: spandanmali2006@gmail.com
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Servises</h6>
+                        <p>
+                            <a class="text-white">Information</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Awarness</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Knowledge</a>
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
+
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024 Copyright:
+
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+
+</body>
+
+</html>

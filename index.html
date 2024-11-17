@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+
+    <title>KRUSHImitra</title>
+    <style>
+        /* style.css*/
+        h1 {
+            color: green;
+        }
+
+
+
+        .mybox1 {
+            display: none;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            color: rgb(5, 14, 5);
+            border: none;
+            border-radius: 30px;
+            background-color: rgb(255, 255, 255);
+            margin-top: 20px;
+        }
+
+        div,
+        span {
+            font-size: 20px;
+        }
+
+        #more {
+            display: none;
+        }
+
+        .faq-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .faq-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .faq-item {
+            margin: 10px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f7f7f7;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #e0e0e0;
+        }
+
+        .faq-answer {
+            padding: 15px;
+            display: none;
+            color: #555;
+            background-color: #f9f9f9;
+            line-height: 1.5;
+        }
+
+        .faq-question .icon {
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active .icon {
+            transform: rotate(45deg);
+        }
+
+        .scroll {
+            color: #fff;
+            margin-top: 100px;
+        }
+
+        #toTopBtn {
+            position: fixed;
+            bottom: 26px;
+            right: 39px;
+            z-index: 98;
+            padding: 21px;
+            background-color: #000000cc;
+
+        }
+
+        .js .cd-top--fade-out {
+            opacity: .5;
+        }
+
+        .js .cd-top--is-visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .js .cd-top {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity .3s, visibility .3s, background-color .3s;
+        }
+
+        .cd-top {
+            position: fixed;
+            bottom: 20px;
+            bottom: var(--cd-back-to-top-margin);
+            right: 20px;
+            right: var(--cd-back-to-top-margin);
+            display: inline-block;
+            height: 40px;
+            height: var(--cd-back-to-top-size);
+            width: 40px;
+            width: var(--cd-back-to-top-size);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .05) !important;
+            background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1571057658/cd-top-arrow.svg) no-repeat center 50%;
+            background-color: hsla(5, 76%, 62%, .8);
+            background-color: hsla(var(--cd-color-3-h), var(--cd-color-3-s), var(--cd-color-3-l), 0.8);
+        }
+
+        .height {
+            height: 3000px;
+        }
+
+        .objectives-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .objective-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .objective-image {
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+        }
+
+        .objective-content {
+            padding: 10px;
+        }
+
+        .objective-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .objective-text {
+            font-size: 17px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Responsive padding */
+        @media (max-width: 600px) {
+            .objective-card {
+                padding: 10px;
+            }
+
+            .objective-title {
+                font-size: 16px;
+            }
+
+            .objective-text {
+                font-size: 14px;
+            }
+        }
+
+        .info {
+            background-color: #e3d57a;
+        }
+
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+            background-color: #e3d57a;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 1s ease;
+        }
+
+        .card {
+            min-width: 300px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #e3d57a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .slider-controls {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .heading-list {
+            width: 80%;
+            margin: 20px auto;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .heading-list li {
+            margin: 15px 0;
+        }
+
+        .heading-list a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .heading-list a:hover {
+            color: #3498db;
+        }
+
+        .slider-container2 {
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider2 {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100px;
+        }
+
+        .card2 {
+            min-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #e3d57a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Auto-Rotate Animation */
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(-200%);
+            }
+
+            75% {
+                transform: translateX(-300%);
+            }
+
+            100% {
+                transform: translateX(-400%);
+            }
+
+            125% {
+                transform: translateX(-500%);
+            }
+
+            150% {
+                transform: translateX(0);
+            }
+        }
+
+        .slider2 {
+            animation: slide 12s infinite;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* Container for the video and overlay */
+        .video-background {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Full screen height */
+            overflow: hidden;
+        }
+
+        /* The background video */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            /* Ensures video fills the container */
+        }
+
+        /* The color overlay */
+        .color-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.5);
+            /* Semi-transparent red overlay */
+            z-index: 1;
+            /* Keeps it in front of the video */
+        }
+
+        /* Content that goes over the overlay */
+        .content {
+            position: relative;
+            z-index: 2;
+            /* Above the color overlay */
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            /* Full screen height */
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .video-background {
+                height: 35vh;
+                /* 30% of the mobile screen height */
+            }
+
+            .background-video {
+                height: 40vh;
+                /* Video height adjusted to 30% */
+            }
+
+            .content {
+                height: 35vh;
+                /* Text content adjusted to 30% of the screen */
+                justify-content: left;
+                /* Keep content centered */
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+
+<body style="background-color: #f9f9f9;">
+    <nav class="navbar fixed-top navbar-light " style="background-color: #86f740;">
+        <a class="navbar-brand" href="#"><span class="badge badge-light">KRUSHI-मित्र</span> <img
+                src="output-onlinepngtools.png" width="45" height="45" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faqs.html">FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calender.html">Agricultural Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="weather.html">Weather Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="crop.html">Crop Growth Tracker</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <div class="video-background" style="color: 86f740;margin-top: 1.3cm;">
+            <!-- Video Background -->
+            <video autoplay loop muted playsinline class="background-video">
+                <source src="banner final - Made with Clipchamp.mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- Color Overlay -->
+            <div class="video-overlay"></div>
+
+            <!-- Text Content -->
+            <div class="content">
+                <h1 style="color: white; margin-left: 0.2cm;">KRUSHI-मित्र</h1>
+                <img src="output-onlinepngtools.png" alt="logo" style="height: 3.65cm;">
+
+                <p style="color: white;"><b>"Empowering farmers with innovative solutions."</b></p>
+            </div>
+
+        </div>
+    </section>
+    <div class="card mb-0"
+        style="max-width: 1505px;padding-left: 8%;padding-right: 8%;;background-color: #ffffff;padding-bottom: 2%;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="Indian-Farmer.jpg" class="img-fluid rounded-start" alt="..." style="padding-top: 0.5cm;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title">What Is KRUSHI-मित्र?</h2>
+                    <p class="card-text" style="font-size: large;">Krushi Mitra is a comprehensive platform designed to
+                        address the unique
+                        challenges faced by farmers. Translating to "Friend of the Farmer," Krushi Mitra serves as a
+                        dedicated resource hub where farmers can find solutions, insights, and guidance on all aspects
+                        of agriculture, from crop cultivation and soil management to pest control and market trends.</p>
+
+
+                    <p class="card-text">In essence, Krushi Mitra is more than a website—it’s a trusted partner in every
+                        farmer's journey, committed to fostering growth, sustainability, and empowerment across the
+                        agricultural landscape.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-0"
+        style="max-width: 1505px;padding-left: 8%;padding-right: 8%;;background-color: #fffefa;padding-bottom: 2%;">
+        <h3 style="text-align: center;">Commom Problems Faces By Indian Farmers</h3>
+        <ul class="heading-list">
+            <li><a href="info1.html" style="font-size: 20px;">Causes of Soil Degradation</a></li>
+            <hr>
+            <li><a href="info2.html" style="font-size: 20px;">Water Management Solutions</a></li>
+            <hr>
+            <li><a href="info3.html" style="font-size: 20px;">Crop Disease Control</a></li>
+            <hr>
+            <li><a href="info4.html" style="font-size: 20px;">Climate Change </a></li>
+            <hr>
+            <span class="mybox1" id="mybox1id">
+                <li><a href="info5.html" style="font-size: 20px;">Pesticide Usage </a></li>
+                <hr>
+                <li><a href="info6.html" style="font-size: 20px;">Soil Health </a></li>
+                <hr>
+                <li><a href="info7.html" style="font-size: 20px;">Government Support for Farmers</a></li>
+                <hr>
+                <li><a href="info8.html" style="font-size: 20px;">Poor Storage Facilities</a></li>
+                <hr>
+                <li><a href="info9.html" style="font-size: 20px;">Lack of Technology</a></li>
+                <hr>
+                <li><a href="info10.html" style="font-size: 20px;">Debt Dependency</a></li>
+                <hr>
+                <li><a href="info11.html" style="font-size: 20px;">Market Access</a></li>
+                <hr>
+                <li><a href="info12.html" style="font-size: 20px;">Youth Migration</a></li>
+                <hr>
+                <li><a href="info13.html" style="font-size: 20px;">Rural Health Issues</a></li>
+                <hr>
+                <li><a href="info14.html" style="font-size: 20px;">Lack of Insurance Awareness</a></li>
+                <hr>
+                <li><a href="info15.html" style="font-size: 20px;">Legal Complexities in Land Ownership</a></li>
+                <hr>
+
+            </span>
+            <button id="mybuttonid" onclick="changeReadMore()" style="background-color: #86f740;">
+                More Problems
+            </button>
+        </ul>
+    </div>
+    <hr style="color: #000;background-color: #000;">
+    <div>
+        <h4 style="text-align: center;"><a href="calender.html" style="color: #000;">Agricluture Calendar-Year 2025</a>
+        </h4>
+
+    </div>
+    <hr style="color: #000;background-color: #000;">
+    <div>
+        <h4 style="text-align: center;"><a href="weather.html" style="color: #000;">Weather Calendar-Year 2025</a></h4>
+
+    </div>
+    <hr style="color: #000;background-color: #000;">
+    <div>
+        <h4 style="text-align: center;"><a href="crop.html" style="color: #000;"> Crop Growth Traker</a></h4>
+
+    </div>
+    <hr style="color: #000;background-color: #000;">
+    <h2 style="text-align: center;" class="shadow-lg p-3 mb-5 bg-white rounded"> Our Objectives</h2>
+    <section class="objectives-container">
+        <div class="objective-card">
+            <div class="objective-content">
+                <h3 class="objective-title">Objective - 1</h3>
+                <p class="objective-text" class="shadow-lg p-3 mb-5 bg-white rounded">Provide sustainable farming
+                    solutions for better crop management and yield
+                    improvement.</p>
+            </div>
+        </div>
+        <div class="objective-card">
+            <div class="objective-content">
+                <h3 class="objective-title">Objective - 2</h3>
+                <p class="objective-text">Empower farmers with access to real-time market data and modern farming
+                    techniques.</p>
+            </div>
+        </div>
+        <div class="objective-card">
+            <div class="objective-content">
+                <h3 class="objective-title">Objective - 3</h3>
+                <p class="objective-text">Promote eco-friendly farming practices for long-term environmental
+                    sustainability.</p>
+            </div>
+        </div>
+        <div class="objective-card">
+            <div class="objective-content">
+                <h3 class="objective-title">Objective - 4</h3>
+                <p class="objective-text">Facilitate access to agricultural knowledge and best practices through
+                    workshops, online resources, and collaboration with experts to support informed decision-making for
+                    farmers.</p>
+            </div>
+        </div>
+        <div class="objective-card">
+            <div class="objective-content">
+                <h3 class="objective-title">Objective - 5</h3>
+                <p class="objective-text">Develop and encourage methods to optimize water usage, soil health, and energy
+                    resources, ensuring sustainable and cost-effective farming practices for long-term agricultural
+                    productivity.</p>
+            </div>
+        </div>
+        <!-- Add more objectives as needed -->
+    </section>
+    <div class="card mb-0"
+        style="max-width: 1505px;padding-left: 8%;padding-right: 8%;;background-color: #ffffff;padding-bottom: 2%;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <h2 class="card-title">WHY DO WE NEED AGRICULTURE DEVELOPMENT?</h2>
+                <iframe width="300" height="315" src="https://www.youtube.com/embed/xFqecEtdGZ0?si=imwsVeblyfe_hsMv"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <p class="card-text" style="font-size: large;">With one-seventh of the world's population, India's
+                        economic stability is dependent on the sustained growth of agriculture and allied activities.
+                        The Government of India set an ambitious target of doubling farmers' income. However, the
+                        crucial challenge for India's agricultural development is to ensure that small and marginal
+                        farmers are able to gain adequate remuneration from farming and contribute to the country's
+                        increasing demand for food.</p>
+
+
+                    <p class="card-text">Less-efficient traditional farming practices limit farmers from realizing the
+                        full potential of their landholding. In addition to the traditional challenges, climate change
+                        is a major concern in agriculture that impacts small farmers. Deviations in rainfall, changing
+                        temperatures, efficiency, and availability of inputs, all have an impact on the crop yield,
+                        quality of the produce, and overall output.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <h2 style="text-align: center   ;">Importants Links </h2>
+    <div class="slider-container2"
+        style="align-self: center;align-content: center;align-items: center;margin-left: 38px;">
+        <div class="slider2">
+            <div class="card2">
+                <a href="https://www.jansamarth.in/home" target="_blank"> <img src="jan-samarth-logo.svg"
+                        alt="Image 1"></a>
+
+            </div>
+            <div class="card2">
+                <a href="https://www.nic.in/" target="_blank"> <img src="nic.png" alt="Image 2">
+                </a>
+            </div>
+            <div class="card2">
+                <a href="https://www.mygov.in/" target="_blank"> <img src="my gov.svg" alt="Image 3">
+                </a>
+            </div>
+
+            <div class="card2">
+                <a href="https://amritmahotsav.nic.in/" target="_blank"> <img src="75.png" alt="Image 4">
+                </a>
+            </div>
+            <div class="card2">
+                <a href="https://www.enam.gov.in/web/" target="_blank"> <img src="enam.png" alt="Image 5">
+                </a>
+            </div>
+            <div class="card2">
+                <a href="https://www.nabard.org/" target="_blank"> <img src="bank.png" alt="Image 6">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-container">
+        <h3>Frequently Asked Questions</h3>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span style="font-size: 13px;">What is the purpose of KRUSHImitra?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Our website provides information and resources for sustainable agriculture practices to empower farmers.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span style="font-size: 13px;">How does climate change affect agriculture development in India?
+                </span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Climate change brings unpredictable weather, rising temperatures, and extreme events like droughts and
+                floods, which threaten crop yields and farmers’ livelihoods. Farmers are adopting climate-smart
+                techniques and drought-resistant crops, with ongoing support from the government and scientists to adapt
+                to these changes and safeguard food security.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span style="font-size: 13px;">What is organic farming, and how is it related to agricultural
+                    development in India?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Organic farming avoids synthetic chemicals, focusing on eco-friendly practices that enhance soil health
+                and biodiversity. Growing consumer demand for chemical-free food has spurred organic farming in India,
+                especially in states like Sikkim and Kerala, aligning with sustainable agricultural development goals.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span style="font-size: 13px;">What is agricultural devlopment?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Agriculture development addresses today’s farming and food production challenges, extending beyond
+                growing crops to include climate change, urbanization, nutrition, and gender equality. Experts focus on
+                building resilient food systems, improving nutrition, and managing natural resources sustainably.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span style="font-size: 13px;">How can young people in India get involved in agricultural development?
+                </span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Young people can engage in agriculture through education, agri-entrepreneurship, and technology.
+                Startups in areas like hydroponics and urban agriculture are transforming the sector, and government
+                schemes provide support for new ventures.
+            </div>
+        </div>
+        <!-- Add more FAQ items as needed -->
+    </div>
+
+    <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out"
+        data-abc="true"></a>
+
+
+
+    <footer class="text-center text-lg-start text-white" style="background-color: #5d3502">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">
+                            KRUSHImitra
+                            <img src="output-onlinepngtools.png" alt="" style="height: 5cm;">
+                        </h6>
+                        <p>
+                            Empowering Farmers, Cultivating Solutions
+                            <br>© 2024 Krushi Mitra. All Rights Reserved.
+                            <br>📍 Address: pune
+                            <br>📞 Contact Us: 9322524896
+                            <br>✉️ Email: spandanmali2006@gmail.com
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Servises</h6>
+                        <p>
+                            <a class="text-white">Information</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Awarness</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Knowledge</a>
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
+
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024 Copyright:
+
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.icon');
+
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                icon.textContent = "+";
+            } else {
+                answer.style.display = "block";
+                icon.textContent = "-";
+            }
+            element.classList.toggle("active");
+        }
+
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 20) {
+                    $('#toTopBtn').fadeIn();
+                } else {
+                    $('#toTopBtn').fadeOut();
+                }
+            });
+
+            $('#toTopBtn').click(function () {
+                $("html, body").animate({
+                    scrollTop: 1
+                }, 1000);
+                return false;
+            });
+        });
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function slideRight() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlide();
+        }
+
+        function slideLeft() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlide();
+        }
+
+        function updateSlide() {
+            slider.style.transform = `translateX(-${currentSlide * 320}px)`;
+        }
+
+        // Auto-rotate every 3 seconds
+        setInterval(slideRight, 3000);
+        // script.js
+        function changeReadMore() {
+            const mycontent =
+                document.getElementById('mybox1id');
+            const mybutton =
+                document.getElementById('mybuttonid');
+            const span1 = document.getElementById("span1")
+
+            if (mycontent.style.display === 'none'
+                || mycontent.style.display === '') {
+                mycontent.style.display = 'inline';
+                span1.style.display = "none";
+                mybutton.textContent = 'Read Less';
+            } else {
+                mycontent.style.display = 'none';
+                mybutton.textContent = 'Read More';
+                span1.style.display = "inline";
+            }
+        }
+
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <!--Uncomment this line-->
+    <script src="//cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

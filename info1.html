@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>info</title>
+    <style>
+        .banner {
+            width: 100%;
+            height: 805;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Optional: Container for center alignment */
+        .banner-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border: white;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Table of Contents Sidebar */
+        .toc {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            width: 250px;
+            z-index: 1000;
+            font-size: 1rem;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .toc h3 {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc ul li {
+            margin: 10px 0;
+        }
+
+        .toc ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            padding: 8px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .toc ul li a:hover {
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Main content layout */
+        .content {
+            margin-left: 280px;
+            padding-top: 20px;
+        }
+
+        .content h2 {
+            font-size: 2rem;
+            margin: 30px 0;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .content section {
+            margin-bottom: 40px;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .toc {
+                position: static;
+                width: 100%;
+                max-height: none;
+                margin-bottom: 10px;
+                margin-top: 20px;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        section p {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Images */
+        .image-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Flexbox Layout for responsive design */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .content-wrapper div {
+            flex: 1;
+            min-width: 300px;
+            box-sizing: border-box;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .content-wrapper div {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-light " style="background-color: #86f740;">
+        <a class="navbar-brand" href="#"><span class="badge badge-light">KRUSHI-मित्र</span> <img
+                src="output-onlinepngtools.png" width="45" height="45" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faqs.html">FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calender.html">Agricultural Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="weather.html">Weather Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="crop.html">Crop Growth Tracker</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h2 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; margin-top: 2cm;">
+            Understanding the Problem,
+            Causes, and Solution</h2>
+    </header>
+    <div class="banner-container">
+        <img src="causes banner.webp" alt="Farming Causes, Solutions, and Problems" class="banner">
+    </div>
+    <hr style="color:#000;background-color: #000;">
+    <div class="container">
+        <!-- Problem Section -->
+        <section>
+            <h1 style="font-family:monospace;"><b>The Problem - <u>Soil Degradation</u></b></h1>
+            <div class="content-wrapper">
+                <div>
+                    <p>
+                    <h5 style="font-family:monospace;">Soil degradation is a major concern in agriculture, as it impacts
+                        soil fertility, crop yields, and environmental health. It refers to the decline in soil quality
+                        caused by various factors, including human activities and natural processes. Here’s a detailed
+                        exploration of soil degradation, its causes, and solutions:
+
+
+
+                    </h5>
+                    </p>
+                </div>
+                <div>
+                    <div class="image-container">
+                        <img src="soil degradation.jpg" alt="Problem Image">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr style="color:#000;background-color: #000;">
+        <!-- Causes Section -->
+        <section>
+            <h1 style="font-family:monospace;"><b>Causes of the Problem</b></h1>
+            <div class="content-wrapper">
+                <div>
+                    <p>
+                    <h2 style="font-family:monospace;">1. Deforestation</h2>
+                    <h6 style="font-family:monospace;">
+                        <ul>
+                            <li style="font-family:monospace;">
+                                <h5><b>Problem</b>: Deforestation removes trees that protect
+                                    soil from erosion. Trees and
+                                    vegetation cover help in anchoring the soil, so when they’re cut down, the soil
+                                    becomes
+                                    exposed to wind and rain, leading to erosion.
+                            </li>
+                            </h5>
+                        </ul>
+                    </h6>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                    <h2 style="font-family:monospace;">2. Overgrazing
+                    </h2>
+                    <h6 style="font-family:monospace;">
+                        <ul>
+                            <li style="font-family:monospace;">
+                                <h5><b>Problem</b> Overgrazing by livestock removes
+                                    vegetation cover and compacts the soil, leading to reduced water infiltration and
+                                    increased erosion. It also diminishes soil fertility by depleting the organic
+                                    matter.</h5>
+                            </li>
+                        </ul>
+                    </h6>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                    <h2 style="font-family:monospace;">3. Agricultural Practices
+
+                    </h2>
+                    <h6 style="font-family:monospace;">
+                        <ul>
+                            <li style="font-family:monospace;">
+                                <h5><b>Problem</b> Intensive farming practices, including
+                                    monocropping, heavy plowing, and overuse of synthetic fertilizers and pesticides,
+                                    degrade soil structure and deplete nutrients. Monocropping (growing the same crop
+                                    repeatedly) reduces soil biodiversity and resilience.</h5>
+                            </li>
+                        </ul>
+                    </h6>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                    <h2 style="font-family:monospace;">4. Soil Pollution
+
+
+                    </h2>
+                    <h6 style="font-family:monospace;">
+                        <ul>
+                            <li style="font-family:monospace;">
+                                <h5><b>Problem</b>Industrial waste, pesticides, and
+                                    fertilizers can introduce heavy metals and toxins into the soil. These chemicals
+                                    kill
+                                    beneficial organisms, disrupt the soil ecosystem, and make the soil less productive.
+                                </h5>
+                        </ul>
+                    </h6>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                    <h2 style="font-family:monospace;">5. Climate Change
+
+                    </h2>
+                    <h6 style="font-family:monospace;">
+                        <ul>
+                            <li style="font-family:monospace;">
+                                <h5><b>Problem</b> Extreme weather events, such as droughts
+                                    and heavy rains, exacerbate soil degradation. Drought reduces organic matter and
+                                    soil
+                                    microorganisms, while intense rains cause erosion and nutrient leaching.</h5>
+                            </li>
+                        </ul>
+                    </h6>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+        <hr style="color:#000;background-color: #000;">
+        <!-- Solution Section -->
+        <section>
+            <h1 style="font-family:monospace;"><b>The Solution</b></h1>
+            <div class="content-wrapper">
+                <section>
+                    <div>
+                        <p>
+                        <h2 style="font-family:monospace;"> 1. Conservation Tillage</h2>
+                        <h5 style="font-family:monospace;">
+                            <ul>
+                                <li style="font-family:monospace;">Conservation tillage (minimal or zero tillage)
+                                    reduces
+                                    soil disturbance, helping maintain soil structure, moisture, and organic matter.
+                                </li>
+                                <li>
+                                    Farmers can leave crop residues on the field, reducing erosion and moisture loss.
+                                </li>
+                                <li>Field with crop residues or a no-till farming setup.</li>
+                            </ul>
+                        </h5>
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <p>
+                        <h2 style="font-family:monospace;"> 2. Agroforestry</h2>
+                        <h5 style="font-family:monospace;">
+                            <ul>
+                                <li style="font-family:monospace;">Agroforestry involves planting trees and shrubs
+                                    alongside
+                                    crops, providing shade, reducing erosion, and improving biodiversity. </li>
+                                <li>
+                                    Strategic planting of native trees or shrubs to protect against wind and rain.
+                                </li>
+                                <li>Field with a mix of trees and crops.</li>
+                            </ul>
+                        </h5>
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <p>
+                        <h2 style="font-family:monospace;"> 3. Cover Cropping</h2>
+                        <h5 style="font-family:monospace;">
+                            <ul>
+                                <li style="font-family:monospace;">Cover crops (like clover, rye, or legumes) are
+                                    planted to protect and enrich soil during the off-season, preventing erosion,
+                                    suppressing weeds, and adding organic matter.</li>
+                                <li>
+                                    Farmers can plant cover crops in rotation to improve soil health.
+                                </li>
+                                <li>Field with a green cover crop planted between rows of crops.</li>
+                            </ul>
+                        </h5>
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <p>
+                        <h2 style="font-family:monospace;"> 4. Soil Reclamation and Amendments</h2>
+                        <h5 style="font-family:monospace;">
+                            <ul>
+                                <li style="font-family:monospace;"> Reclaiming degraded soil involves adding organic
+                                    matter (like compost or manure), biochar, and minerals to replenish nutrients and
+                                    improve structure.</li>
+                                <li>
+                                    Farmers can establish grazing plans and use movable fencing.
+                                </li>
+                                <li>Rotational grazing setup with different sections for livestock.</li>
+                            </ul>
+                        </h5>
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <p>
+                        <h2 style="font-family:monospace;"> 5. Organic Farming</h2>
+                        <h5 style="font-family:monospace;">
+                            <ul>
+                                <li style="font-family:monospace;"> Organic farming avoids synthetic fertilizers and
+                                    pesticides, instead using natural compost and manure, enhancing soil fertility
+                                    without polluting it.</li>
+                                <li>
+                                    Practicing crop rotation, using organic pest control, and applying compost.
+                                </li>
+                                <li>Field with organic crops or compost application.</li>
+                            </ul>
+                        </h5>
+                        </p>
+                    </div>
+                </section>
+                <hr style="color:#000;background-color: #000;">
+                <section>
+                    <h1 style="font-family:monospace;"><b>The Conclution</b></h1>
+                    <h5 style="font-family:monospace;">
+                        <ul>
+                            <li style="font-family:monospace;"> Addressing soil degradation is crucial for sustainable
+                                agriculture and environmental conservation. Practices like conservation tillage,
+                                agroforestry, and crop rotation help restore and preserve soil health. Through these
+                                approaches, we can work toward a sustainable future in agriculture and protect the
+                                resources on which our food systems depend.</li>
+                            <li>
+                                Practicing crop rotation, using organic pest control, and applying compost.
+                            </li>
+                            <li>Field with organic crops or compost application.</li>
+                        </ul>
+                    </h5>
+                </section>
+
+            </div>
+        </section>
+    </div>
+    <footer class="text-center text-lg-start text-white" style="background-color: #5d3502">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">
+                            KRUSHImitra
+                            <img src="output-onlinepngtools.png" alt="" style="height: 5cm;">
+                        </h6>
+                        <p>
+                            Empowering Farmers, Cultivating Solutions
+                            <br>© 2024 Krushi Mitra. All Rights Reserved.
+                            <br>📍 Address: pune
+                            <br>📞 Contact Us: 9322524896
+                            <br>✉️ Email: spandanmali2006@gmail.com
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Servises</h6>
+                        <p>
+                            <a class="text-white">Information</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Awarness</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Knowledge</a>
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
+
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024 Copyright:
+
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+
+</body>
+
+</html>
